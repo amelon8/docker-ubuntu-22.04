@@ -1,29 +1,40 @@
 ### Notes
-This Docker setup creates an Ubuntu 22.04 (jammy) image. On macOS, install [Docker Desktop](https://docs.docker.com/desktop/install/mac-install/, then follow the instructions below.
+This project creates an Ubuntu 22.04 (jammy) Docker image. On macOS, install [Docker Desktop](https://docs.docker.com/desktop/install/mac-install/), then follow the instructions below to build and bring up the Docker container.
+
+We use [Docker Compose](https://docs.docker.com/compose/) to manage the container's life cycle. See `docker-compose.yml` for more information.
+
+Before running any command below, be sure to switch to the project directory first.
+
+```
+% cd docker-ubuntu-22.04
+```
 
 ### Setup
 
 * Switch to the project directory, then build the image.
-
-    % cd docker-ubuntu-22.04
+    ```
     % docker-compose build
+    ```
 
 ### Usage
 
 * Start up container
-
+    ```
     % docker-compose up -d
+    ```
 
 * Check container status
-
+    ```
     % docker-compose ps
+    ```
 
 * Shut down container
-
+    ```
     % docker-compose down
+    ```
 
 * Start an interactive Bash session on the container. Note that the working directory is `/code` which maps to `code` in the project directory. You can edit files in the host environment (macOS) and then execute them in the container.
-
+    ```
     % docker-compose exec ubu bash
 
     root@6e4a16fb9f14:/code# ls -la
@@ -69,6 +80,7 @@ This Docker setup creates an Ubuntu 22.04 (jammy) image. On macOS, install [Dock
 
     root@6e4a16fb9f14:/code# ./hello
     Hello, C++!
+    ```
     
 ### Issues
 * None
