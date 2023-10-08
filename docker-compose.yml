@@ -1,0 +1,15 @@
+version: '2'
+services:
+
+  ubu:
+    image: amelon1/ubuntu-22.04:1
+    restart: always
+    tty: true       # Keep container running
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ${PWD}/code:/code
+    environment:
+      - TERM=vt100
+    working_dir: /code
